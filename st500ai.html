@@ -36,8 +36,8 @@
             max-width: 1100px;
             overflow: hidden;
             box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            margin-bottom: 40px;
         }
-        /* ปุ่มสี 3 จุด แบบ Mac */
         .window-header {
             background: #1a1a1a;
             padding: 15px 20px;
@@ -87,6 +87,35 @@
         }
         .detail-item h4 { margin: 0; color: #666; font-size: 0.8em; text-transform: uppercase; }
         .detail-item p { margin: 5px 0 0 0; color: #ddd; font-weight: 500; font-size: 0.95em; }
+
+        /* ส่วนตั้งค่าสำหรับ Gallery ด้านล่าง */
+        .gallery-section {
+            padding: 0 40px 40px 40px;
+        }
+        .gallery-section h3 {
+            color: #888;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #222;
+            padding-bottom: 10px;
+        }
+        .gallery-grid {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .gallery-grid img {
+            flex: 1;
+            min-width: 280px;
+            width: 100%;
+            border-radius: 12px;
+            border: 1px solid #333;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            object-fit: cover;
+        }
+
     </style>
 </head>
 <body>
@@ -107,7 +136,7 @@
         </div>
 
         <div class="content-layout">
-            <!-- ส่วนแสดงวิดีโอ YouTube Shorts (แก้ไขลิงก์แล้ว) -->
+            <!-- ส่วนแสดงวิดีโอ YouTube Shorts -->
             <div class="media-section">
                 <iframe width="315" height="560" src="https://www.youtube.com/embed/98HnZptq5_A" title="ST500 AI Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);"></iframe>
             </div>
@@ -138,6 +167,16 @@
                 </div>
             </div>
         </div>
+
+        <!-- ส่วนแกลลอรี่ภาพ (ดึงรูปจากโฟลเดอร์ st_500ai) -->
+        <div class="gallery-section">
+            <h3>Gallery & Achievement</h3>
+            <div class="gallery-grid">
+                <img src="st_500ai/pic1.jpg" alt="ST500 AI Achievement 1">
+                <img src="st_500ai/pic2.jpg" alt="ST500 AI Achievement 2">
+            </div>
+        </div>
+
     </div>
 
 </body>
