@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chotiphat | Robotics & Automation</title>
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #ededed;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 50px 20px;
+            display: flex;
+            justify-content: center;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        .hero {
+            flex: 1;
+            min-width: 300px;
+        }
+        .hero h1 {
+            font-size: 3em;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            font-weight: 600;
+            letter-spacing: -1px;
+        }
+        .hero p {
+            color: #888;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+        }
+        .tech-tags span {
+            display: inline-block;
+            background: #1a1a1a;
+            color: #aaa;
+            padding: 5px 12px;
+            border-radius: 50px;
+            font-size: 0.85em;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            border: 1px solid #333;
+        }
+        .projects {
+            flex: 1;
+            min-width: 350px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .card {
+            background: #141414;
+            border: 1px solid #2a2a2a;
+            border-radius: 20px;
+            padding: 30px;
+            transition: 0.3s;
+            text-decoration: none;
+            color: white;
+            display: block;
+        }
+        .card:hover {
+            border-color: #555;
+            background: #1a1a1a;
+            transform: translateY(-2px);
+        }
+        .card h3 { margin: 0 0 10px 0; font-size: 1.4em; }
+        .card p { color: #888; font-size: 0.95em; margin: 0; }
+        .status {
+            font-size: 0.8em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #666;
+            margin-bottom: 8px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- ด้านซ้าย: แนะนำตัว -->
+        <div class="hero">
+            <span style="color: #666; text-transform: uppercase; font-size: 0.85em; letter-spacing: 1px;">Chotiphat Mala-e | Mechatronics Engineering</span>
+            <h1>I build systems that see, move, and automate.</h1>
+            <p>นักศึกษาวิศวกรรมแมคคาทรอนิกส์ มจพ. (KMUTNB) มีความสนใจในการพัฒนาระบบหุ่นยนต์อัตโนมัติ การควบคุม PLC, IoT และการเขียนโปรแกรมเพื่อสร้างโซลูชันทางวิศวกรรม</p>
+            <div class="tech-tags">
+                <span>ROS2</span>
+                <span>Gazebo</span>
+                <span>Python</span>
+                <span>Delphi</span>
+                <span>IoT</span>
+            </div>
+        </div>
+
+        <!-- ด้านขวา: โปรเจกต์ -->
+        <div class="projects">
+            <!-- โปรเจกต์ที่ 1 -->
+            <a href="senior_project.html" class="card">
+                <span class="status">Senior Project | 2025-2026</span>
+                <h3>Mobile Manipulator Simulation</h3>
+                <p>จำลองการทำงานของหุ่นยนต์ AMR (MiR100) ร่วมกับแขนกล 6 แกน (Techman) สำหรับระบบหยิบจับและนำทางอัตโนมัติ พัฒนาบน ROS2</p>
+            </a>
+            
+            <!-- โปรเจกต์ที่ 2 (อัปเดตเป็น ST500 AI และทำเป็นลิงก์) -->
+            <a href="st500ai.html" class="card">
+                <span class="status">IoT Automation | 2026</span>
+                <h3>ST500 AI</h3>
+                <p>ระบบอัตโนมัติสำหรับมอนิเตอร์และควบคุมคุณภาพน้ำเสียอัจฉริยะ ทำงานผ่านโปรโตคอล Modbus, MQTT และ Home Assistant</p>
+            </a>
+
+            <!-- โปรเจกต์ที่ 3 -->
+            <div class="card">
+                <span class="status">Hardware Control | 2026</span>
+                <h3>ESP32 GUI Control</h3>
+                <p>พัฒนาระบบเครือข่ายและโปรแกรมด้วย Delphi GUI เพื่อควบคุมรถฮาร์ดแวร์ ESP32 และรับส่งภาพสตรีมมิ่งจาก ESP32-CAM</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
