@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awards & Achievements - Chotiphat</title>
+    <style>
+        body {
+            background-color: #050505;
+            color: #ededed;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .nav {
+            width: 100%;
+            max-width: 1000px;
+            margin-bottom: 20px;
+        }
+        .nav a {
+            color: #888;
+            text-decoration: none;
+            font-size: 0.9em;
+            transition: 0.3s;
+        }
+        .nav a:hover { color: #fff; }
+        
+        .window-card {
+            background: #111;
+            border: 1px solid #222;
+            border-radius: 16px;
+            width: 100%;
+            max-width: 1000px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            margin-bottom: 40px;
+        }
+        .window-header {
+            background: #1a1a1a;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #222;
+        }
+        .dots { display: flex; gap: 8px; }
+        .dot { width: 12px; height: 12px; border-radius: 50%; }
+        .dot.red { background: #ff5f56; }
+        .dot.yellow { background: #ffbd2e; }
+        .dot.green { background: #27c93f; }
+        .header-title {
+            margin: 0 auto;
+            color: #888;
+            font-size: 0.85em;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .content-layout {
+            padding: 40px;
+        }
+        
+        /* สไตล์สำหรับการ์ดรางวัลแต่ละอัน */
+        .award-card {
+            display: flex;
+            flex-wrap: wrap;
+            background: #161616;
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            transition: 0.3s;
+        }
+        .award-card:hover {
+            border-color: #444;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+        }
+        .award-img {
+            flex: 1;
+            min-width: 300px;
+            background: #000;
+        }
+        .award-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .award-info {
+            flex: 2;
+            min-width: 300px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .award-info h2 { margin: 0 0 10px 0; font-size: 1.5em; color: #fff; }
+        .award-info p { margin: 0 0 15px 0; color: #aaa; font-size: 1em; line-height: 1.6; }
+        .org-tag {
+            display: inline-block;
+            background: #222;
+            color: #4CAF50;
+            padding: 5px 12px;
+            border-radius: 50px;
+            font-size: 0.8em;
+            border: 1px solid #333;
+            width: fit-content;
+            font-weight: 600;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .award-card { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="nav">
+        <a href="index.html">← Back to Portfolio</a>
+    </div>
+
+    <div class="window-card">
+        <div class="window-header">
+            <div class="dots">
+                <div class="dot red"></div>
+                <div class="dot yellow"></div>
+                <div class="dot green"></div>
+            </div>
+            <div class="header-title">AWARDS & ACHIEVEMENTS</div>
+            <div style="width: 44px;"></div>
+        </div>
+
+        <div class="content-layout">
+            
+            <!-- รางวัลที่ 1 (อิงจาก pic3.jpg) ST-500:AI (เอาอันชนะเลิศขึ้นก่อน) -->
+            <div class="award-card">
+                <div class="award-img">
+                    <img src="Reward/pic3.jpg" alt="ITED Innovation & Media Academy Contest 2025">
+                </div>
+                <div class="award-info">
+                    <span class="org-tag">1st Place (Winner)</span>
+                    <h2 style="margin-top: 15px;">ITED Innovation & Media Academy Contest 2025</h2>
+                    <p>ได้รับรางวัลชนะเลิศอันดับ 1 ในหมวดหมู่ IoT/App จากผลงาน "ST-500: AI" (จัดโดย CIT-KMUTNB / SEEM)</p>
+                    <p style="font-size: 0.85em; color: #666; margin: 0;">ปีที่ได้รับรางวัล: 2025</p>
+                </div>
+            </div>
+
+            <!-- รางวัลที่ 2 (อิงจาก pic1.jpg) I-NEW GEN AWARD -->
+            <div class="award-card">
+                <div class="award-img">
+                    <img src="Reward/pic1.jpg" alt="I-NEW GEN AWARD 2026">
+                </div>
+                <div class="award-info">
+                    <span class="org-tag">1st Runner-up</span>
+                    <h2 style="margin-top: 15px;">I-NEW GEN AWARD 2026</h2>
+                    <p>ได้รับรางวัลรองชนะเลิศอันดับ 1 จากเวทีการประกวดสิ่งประดิษฐ์และนวัตกรรมระดับประเทศ จัดโดยสำนักงานการวิจัยแห่งชาติ (NRCT)</p>
+                    <p style="font-size: 0.85em; color: #666; margin: 0;">ปีที่ได้รับรางวัล: 2026</p>
+                </div>
+            </div>
+
+            <!-- รางวัลที่ 3 (อิงจาก pic2.jpg) Thailand Innovation Awards -->
+            <div class="award-card">
+                <div class="award-img">
+                    <img src="Reward/pic2.jpg" alt="Thailand Innovation Awards 2025">
+                </div>
+                <div class="award-info">
+                    <span class="org-tag">Awardee / Finalist</span>
+                    <h2 style="margin-top: 15px;">Thailand Innovation Awards 2025</h2>
+                    <p>คว้ารางวัลจากเวทีการประกวดนวัตกรรม Thailand Innovation Awards 2025 เป็นตัวแทนนักศึกษาจากวิทยาลัยเทคโนโลยีอุตสาหกรรม มจพ. (สนับสนุนโดย STRI)</p>
+                    <p style="font-size: 0.85em; color: #666; margin: 0;">ปีที่ได้รับรางวัล: 2025</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
