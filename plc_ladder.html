@@ -99,10 +99,10 @@
         }
         .carousel-slide iframe {
             width: 100%;
-            height: calc(100% + 60px);
-            margin-top: -60px;
+            height: 100%;
             border: none;
-            pointer-events: none;
+            pointer-events: none; /* ล็อคไม่ให้กดเปิดเสียง */
+            display: block;
         }
         
         /* ปุ่มเลื่อนซ้าย-ขวา */
@@ -194,7 +194,7 @@
 
         <div class="content-layout">
             
-            <!-- ฝั่งซ้าย: Carousel วิดีโอ Shorts (ปิดเสียง + ไร้ขอบดำ) -->
+            <!-- ฝั่งซ้าย: Carousel วิดีโอ Shorts (แสดงโปรไฟล์ + ชื่อคลิป + เต็มขอบพอดีเป๊ะ) -->
             <div class="carousel-wrapper">
                 <div class="carousel-container">
                     <button class="carousel-btn btn-prev" onclick="moveSlide(-1)">❮</button>
@@ -203,7 +203,6 @@
                     <div class="carousel-track" id="track">
                         <!-- คลิปที่ 1 -->
                         <div class="carousel-slide">
-                            
                             <iframe src="https://www.youtube.com/embed/ri_iEjsfovQ?autoplay=1&mute=1&controls=0&loop=1&playlist=ri_iEjsfovQ&playsinline=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
                         </div>
                         <!-- คลิปที่ 2 -->
@@ -212,7 +211,7 @@
                         </div>
                         <!-- คลิปที่ 3 -->
                         <div class="carousel-slide">
-                           <iframe src="https://www.youtube.com/embed/nIJ04wtdYKE?autoplay=1&mute=1&controls=0&loop=1&playlist=nIJ04wtdYKE&playsinline=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+                            <iframe src="https://www.youtube.com/embed/nIJ04wtdYKE?autoplay=1&mute=1&controls=0&loop=1&playlist=nIJ04wtdYKE&playsinline=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
                         </div>
                     </div>
                 </div>
