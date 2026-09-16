@@ -99,13 +99,10 @@
         }
         .carousel-slide iframe {
             width: 100%;
-            height: 100%;
+            height: calc(100% + 60px);
+            margin-top: -60px;
             border: none;
-            /* ล็อคไม่ให้คลิกโดนวิดีโอ เพื่อป้องกันการกดเปิดเสียง */
             pointer-events: none;
-            /* ซูม 1.08 เท่า เพื่อดันขอบดำด้านข้างออกไปให้เต็มจอ */
-            transform: scale(1.08);
-            transform-origin: center center;
         }
         
         /* ปุ่มเลื่อนซ้าย-ขวา */
