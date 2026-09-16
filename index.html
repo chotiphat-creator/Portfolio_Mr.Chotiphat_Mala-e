@@ -26,7 +26,7 @@
             gap: 25px;
         }
 
-        /* --- แถบปุ่มสลับภาษาด้านบนขวา --- */
+        /* แถบปุ่มสลับภาษาด้านบนขวา */
         .top-bar {
             display: flex;
             justify-content: flex-end;
@@ -61,7 +61,7 @@
             gap: 40px;
         }
 
-        /* --- ด้านซ้าย: แนะนำตัว & ภาพปฏิบัติงาน --- */
+        /* ด้านซ้าย: แนะนำตัว & ภาพปฏิบัติงาน */
         .hero {
             flex: 1.2;
             min-width: 340px;
@@ -76,7 +76,6 @@
             height: 380px;
             flex-shrink: 0;
             overflow: hidden;
-            
             -webkit-mask-image: linear-gradient(
                 to right,
                 rgba(0, 0, 0, 1) 0%,
@@ -154,7 +153,7 @@
             border: 1px solid #333;
         }
 
-        /* --- ด้านขวา: รายการโปรเจกต์ --- */
+        /* ด้านขวา: รายการโปรเจกต์ */
         .projects {
             flex: 1;
             min-width: 340px;
@@ -188,7 +187,7 @@
             display: block;
         }
 
-        /* --- ด้านล่างสุด: ข้อความ Contact แบบข้อความล้วน --- */
+        /* ด้านล่างสุด: ข้อความ Contact แบบข้อความล้วน */
         .contact-footer {
             margin-top: 30px;
             padding-top: 25px;
@@ -250,7 +249,7 @@
         
         <div class="top-bar">
             <button class="lang-switch-btn" id="lang-btn" onclick="toggleLanguage()">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
                 <span id="lang-indicator"><span class="active">TH</span> | EN</span>
             </button>
         </div>
@@ -283,7 +282,7 @@
 
             <div class="projects">
                 <a href="senior_project.html" class="card">
-                    <span class="status" data-i18n="p1-status">Robotics Simulation | Senior Project </span>
+                    <span class="status" data-i18n="p1-status">Robotics Simulation | Senior Project</span>
                     <h3>Mobile Manipulator Simulation</h3>
                     <p data-i18n="p1-desc">จำลองการทำงานของหุ่นยนต์ AMR (MiR100) ร่วมกับแขนกล 6 แกน (Techman) สำหรับระบบหยิบจับและนำทางอัตโนมัติ พัฒนาบน ROS2</p>
                 </a>
@@ -314,7 +313,6 @@
             </div>
         </div>
 
-        <!-- โซน Contact ข้อความธรรมดา (ไม่เป็นลิงก์) -->
         <footer class="contact-footer">
             <div class="contact-title" data-i18n="contact-title">Contact Information</div>
             <div class="contact-items">
@@ -341,9 +339,10 @@
                 "role-tag": "Chotiphat Mala-e | Mechatronics Engineering",
                 "headline": "I build systems that see, move, and automate.",
                 "bio": "นักศึกษาวิศวกรรมแมคคาทรอนิกส์ มจพ. (KMUTNB) มีความสนใจในการพัฒนาระบบหุ่นยนต์อัตโนมัติ การควบคุม PLC, IoT และการเขียนโปรแกรมเพื่อสร้างโซลูชันทางวิศวกรรม",
-                /* แก้ไขข้อความภาษาไทยตรงนี้ */
                 "p1-status": "Robotics Simulation | Senior Project",
+                "p1-desc": "จำลองการทำงานของหุ่นยนต์ AMR (MiR100) ร่วมกับแขนกล 6 แกน (Techman) สำหรับระบบหยิบจับและนำทางอัตโนมัติ พัฒนาบน ROS2",
                 "p2-status": "IoT Automation | Research & Innovation",
+                "p2-desc": "ระบบอัตโนมัติสำหรับมอนิเตอร์และควบคุมคุณภาพน้ำเสียอัจฉริยะ ทำงานผ่านโปรโตคอล Modbus, MQTT และ Home Assistant",
                 "p3-status": "Mechanical Design | Mini Project",
                 "p3-desc": "การออกแบบและสร้างแบบจำลอง 3 มิติ (3D CAD) โครงสร้างหุ่นยนต์บริการเสิร์ฟอาหาร สำหรับใช้งานในร้านอาหารและพื้นที่บริการ",
                 "p4-status": "Automation & Control | Lab",
@@ -360,9 +359,10 @@
                 "role-tag": "Chotiphat Mala-e | Mechatronics Engineering",
                 "headline": "I build systems that see, move, and automate.",
                 "bio": "Mechatronics Engineering student at KMUTNB, passionate about robotics automation, PLC control, Industrial IoT, and engineering software development.",
-                /* แก้ไขข้อความภาษาอังกฤษตรงนี้ */
                 "p1-status": "Robotics Simulation | Senior Project",
+                "p1-desc": "Autonomous navigation and manipulation simulation combining MiR100 AMR base with Techman 6-axis cobot, developed on ROS2.",
                 "p2-status": "IoT Automation | Research & Innovation",
+                "p2-desc": "Smart automated industrial wastewater monitoring and control platform powered by Modbus, MQTT, and Home Assistant.",
                 "p3-status": "Mechanical Design | Mini Project",
                 "p3-desc": "3D CAD mechanical modeling and structural frame design for an autonomous food service robot in dining environments.",
                 "p4-status": "Automation & Control | Lab",
@@ -405,6 +405,5 @@
 
         document.addEventListener('DOMContentLoaded', updateContent);
     </script>
-
 </body>
 </html>
