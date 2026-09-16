@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ST500 AI - Water Quality Monitoring</title>
     <style>
+        * { box-sizing: border-box; }
         body {
             background-color: #050505;
             color: #ededed;
@@ -19,6 +20,9 @@
             width: 100%;
             max-width: 1100px;
             margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         .nav a {
             color: #888;
@@ -27,6 +31,22 @@
             transition: 0.3s;
         }
         .nav a:hover { color: #fff; }
+
+        .lang-switch-btn {
+            background: #141414;
+            border: 1px solid #2a2a2a;
+            color: #888;
+            padding: 6px 14px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 0.85em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+        }
+        .lang-switch-btn:hover { border-color: #444; color: #fff; }
+        .lang-switch-btn span.active { color: #4CAF50; font-weight: 600; }
         
         .window-card {
             background: #111;
@@ -55,6 +75,7 @@
             color: #888;
             font-size: 0.85em;
             letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         .content-layout {
@@ -88,7 +109,6 @@
         .detail-item h4 { margin: 0; color: #666; font-size: 0.8em; text-transform: uppercase; }
         .detail-item p { margin: 5px 0 0 0; color: #ddd; font-weight: 500; font-size: 0.95em; }
 
-        /* ส่วนตั้งค่าสำหรับ Gallery ด้านล่าง */
         .gallery-section {
             padding: 0 40px 40px 40px;
         }
@@ -116,12 +136,19 @@
             object-fit: cover;
         }
 
+        @media (max-width: 768px) {
+            .content-layout { flex-direction: column; }
+        }
     </style>
 </head>
 <body>
 
     <div class="nav">
-        <a href="index.html">← Back to Portfolio</a>
+        <a href="index.html" data-i18n="nav-back">← Back to Portfolio</a>
+        <button class="lang-switch-btn" onclick="toggleLanguage()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            <span id="lang-indicator"><span class="active">TH</span> | EN</span>
+        </button>
     </div>
 
     <div class="window-card">
@@ -131,53 +158,107 @@
                 <div class="dot yellow"></div>
                 <div class="dot green"></div>
             </div>
-            <div class="header-title">ST500 AI - WATER QUALITY AUTOMATION</div>
+            <div class="header-title" data-i18n="win-title">ST500 AI - WATER QUALITY AUTOMATION</div>
             <div style="width: 44px;"></div>
         </div>
 
         <div class="content-layout">
-            <!-- ส่วนแสดงวิดีโอ YouTube Shorts -->
             <div class="media-section">
                 <iframe width="315" height="560" src="https://www.youtube.com/embed/98HnZptq5_A" title="ST500 AI Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);"></iframe>
             </div>
 
-            <!-- ส่วนข้อมูลโปรเจกต์ -->
             <div class="info-section">
-                <h2>Smart control platform for industrial wastewater.</h2>
-                <p>โปรเจกต์ <strong>ST500 AI</strong> เป็นการพัฒนาระบบอัตโนมัติสำหรับตรวจสอบและควบคุมคุณภาพน้ำเสียในโรงงานอุตสาหกรรม โดยใช้เทคโนโลยีเซนเซอร์ IoT ที่มีความแม่นยำสูง</p>
-                <p>ระบบถูกออกแบบโครงสร้างสถาปัตยกรรมเครือข่ายและการควบคุมฮาร์ดแวร์ผ่านแผงคอนโทรล โดยนำข้อมูลมาแสดงผลและจัดการแบบศูนย์กลาง เพื่อยกระดับความปลอดภัยและประสิทธิภาพในการบริหารจัดการน้ำ</p>
+                <h2 data-i18n="title">Smart control platform for industrial wastewater.</h2>
+                <p data-i18n="desc1">โปรเจกต์ <strong>ST500 AI</strong> เป็นการพัฒนาระบบอัตโนมัติสำหรับตรวจสอบและควบคุมคุณภาพน้ำเสียในโรงงานอุตสาหกรรม โดยใช้เทคโนโลยีเซนเซอร์ IoT ที่มีความแม่นยำสูง</p>
+                <p data-i18n="desc2">ระบบถูกออกแบบโครงสร้างสถาปัตยกรรมเครือข่ายและการควบคุมฮาร์ดแวร์ผ่านแผงคอนโทรล โดยนำข้อมูลมาแสดงผลและจัดการแบบศูนย์กลาง เพื่อยกระดับความปลอดภัยและประสิทธิภาพในการบริหารจัดการน้ำ</p>
                 
                 <div class="details-grid">
                     <div class="detail-item">
-                        <h4>Protocols</h4>
+                        <h4 data-i18n="meta-protocols">Protocols</h4>
                         <p>Modbus / MQTT</p>
                     </div>
                     <div class="detail-item">
-                        <h4>Dashboard</h4>
+                        <h4 data-i18n="meta-dashboard">Dashboard</h4>
                         <p>Home Assistant</p>
                     </div>
                     <div class="detail-item">
-                        <h4>Role</h4>
-                        <p>IoT & Automation Engineer</p>
+                        <h4 data-i18n="meta-role">Role</h4>
+                        <p data-i18n="meta-role-val">IoT & Automation Engineer</p>
                     </div>
                     <div class="detail-item">
-                        <h4>Year</h4>
+                        <h4 data-i18n="meta-year">Year</h4>
                         <p>2025-2026</p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- ส่วนแกลลอรี่ภาพ (ดึงรูปจากโฟลเดอร์ st_500ai) -->
         <div class="gallery-section">
-            <h3>Gallery & Achievement</h3>
+            <h3 data-i18n="gallery-title">Gallery & Achievement</h3>
             <div class="gallery-grid">
                 <img src="st_500ai/pic01.jpg" alt="ST500 AI Achievement 1">
                 <img src="st_500ai/pic02.jpg" alt="ST500 AI Achievement 2">
             </div>
         </div>
-
     </div>
 
+    <script>
+        const translations = {
+            th: {
+                "nav-back": "← Back to Portfolio",
+                "win-title": "ST500 AI - WATER QUALITY AUTOMATION",
+                "title": "Smart control platform for industrial wastewater.",
+                "desc1": "โปรเจกต์ ST500 AI เป็นการพัฒนาระบบอัตโนมัติสำหรับตรวจสอบและควบคุมคุณภาพน้ำเสียในโรงงานอุตสาหกรรม โดยใช้เทคโนโลยีเซนเซอร์ IoT ที่มีความแม่นยำสูง",
+                "desc2": "ระบบถูกออกแบบโครงสร้างสถาปัตยกรรมเครือข่ายและการควบคุมฮาร์ดแวร์ผ่านแผงคอนโทรล โดยนำข้อมูลมาแสดงผลและจัดการแบบศูนย์กลาง เพื่อยกระดับความปลอดภัยและประสิทธิภาพในการบริหารจัดการน้ำ",
+                "meta-protocols": "โปรโตคอล",
+                "meta-dashboard": "แดชบอร์ด",
+                "meta-role": "บทบาทหน้าที่",
+                "meta-role-val": "วิศวกร IoT และระบบอัตโนมัติ",
+                "meta-year": "ปีที่พัฒนา",
+                "gallery-title": "ภาพประกอบและผลงานความสำเร็จ"
+            },
+            en: {
+                "nav-back": "← Back to Portfolio",
+                "win-title": "ST500 AI - WATER QUALITY AUTOMATION",
+                "title": "Smart control platform for industrial wastewater.",
+                "desc1": "ST500 AI develops an autonomous industrial wastewater quality monitoring and smart control system using high-precision IoT sensors.",
+                "desc2": "Engineered network communication architectures, hardware control panels, and centralized dashboards to enhance water treatment safety and operational efficiency.",
+                "meta-protocols": "Protocols",
+                "meta-dashboard": "Dashboard",
+                "meta-role": "Role",
+                "meta-role-val": "IoT & Automation Engineer",
+                "meta-year": "Year",
+                "gallery-title": "Gallery & Achievement"
+            }
+        };
+
+        let currentLang = localStorage.getItem('portfolio_lang') || 'th';
+
+        function updateContent() {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[currentLang] && translations[currentLang][key]) {
+                    el.textContent = translations[currentLang][key];
+                }
+            });
+
+            const indicator = document.getElementById('lang-indicator');
+            if (currentLang === 'th') {
+                indicator.innerHTML = '<span class="active">TH</span> | EN';
+                document.documentElement.lang = "th";
+            } else {
+                indicator.innerHTML = 'TH | <span class="active">EN</span>';
+                document.documentElement.lang = "en";
+            }
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'th' ? 'en' : 'th';
+            localStorage.setItem('portfolio_lang', currentLang);
+            updateContent();
+        }
+
+        document.addEventListener('DOMContentLoaded', updateContent);
+    </script>
 </body>
 </html>

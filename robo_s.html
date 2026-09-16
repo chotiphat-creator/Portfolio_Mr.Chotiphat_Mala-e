@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ROBO_S - Food Service Robot</title>
     <style>
+        * { box-sizing: border-box; }
         body {
             background-color: #050505;
             color: #ededed;
@@ -19,6 +20,9 @@
             width: 100%;
             max-width: 1100px;
             margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         .nav a {
             color: #888;
@@ -27,6 +31,22 @@
             transition: 0.3s;
         }
         .nav a:hover { color: #fff; }
+
+        .lang-switch-btn {
+            background: #141414;
+            border: 1px solid #2a2a2a;
+            color: #888;
+            padding: 6px 14px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 0.85em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+        }
+        .lang-switch-btn:hover { border-color: #444; color: #fff; }
+        .lang-switch-btn span.active { color: #4CAF50; font-weight: 600; }
         
         .window-card {
             background: #111;
@@ -54,6 +74,7 @@
             color: #888;
             font-size: 0.85em;
             letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         .content-layout {
@@ -74,7 +95,7 @@
             border-radius: 12px;
             border: 1px solid #333;
             box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-            background: #fff; /* แบคกราวด์สีขาวให้เข้ากับรูป CAD */
+            background: #fff;
         }
         .img-grid {
             display: flex;
@@ -113,7 +134,11 @@
 <body>
 
     <div class="nav">
-        <a href="index.html">← Back to Portfolio</a>
+        <a href="index.html" data-i18n="nav-back">← Back to Portfolio</a>
+        <button class="lang-switch-btn" onclick="toggleLanguage()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            <span id="lang-indicator"><span class="active">TH</span> | EN</span>
+        </button>
     </div>
 
     <div class="window-card">
@@ -123,53 +148,107 @@
                 <div class="dot yellow"></div>
                 <div class="dot green"></div>
             </div>
-            <div class="header-title">ROBO_S - FOOD SERVICE ROBOT</div>
+            <div class="header-title" data-i18n="win-title">ROBO_S - FOOD SERVICE ROBOT</div>
             <div style="width: 44px;"></div>
         </div>
 
         <div class="content-layout">
-            <!-- ส่วนแสดงวิดีโอและรูปภาพ -->
             <div class="media-section">
-                <!-- วิดีโอ .mov -->
                 <video class="media-item" autoplay loop muted playsinline>
                     <source src="ROBO_S/robos.mov" type="video/mp4">
-                    เบราว์เซอร์ของคุณไม่รองรับการเล่นวิดีโอ
                 </video>
-                
-                <!-- รูปภาพ 2 รูปคู่กัน -->
                 <div class="img-grid">
                     <img class="media-item" src="ROBO_S/robo1.png" alt="ROBO_S Frame Design">
                     <img class="media-item" src="ROBO_S/robo2.png" alt="ROBO_S Drawing Views">
                 </div>
             </div>
 
-            <!-- ส่วนข้อมูลโปรเจกต์ -->
             <div class="info-section">
-                <h2>3D Mechanical Design for Food Service Robot.</h2>
-                <p>มินิโปรเจกต์การออกแบบโครงสร้างทางกล (Mechanical Design) สำหรับหุ่นยนต์บริการและเสิร์ฟอาหาร (Food Service Robot) เน้นการประยุกต์ใช้งานจริงในร้านอาหาร</p>
-                <p>ตัวหุ่นยนต์ถูกออกแบบและจำลองภาพ 3 มิติ โดยคำนึงถึงความแข็งแรงของโครงสร้าง (Frame structural design) การรับน้ำหนักของถาดวางอาหาร และการจัดวางศูนย์ถ่วงให้เหมาะสมกับการเคลื่อนที่แบบอัตโนมัติ</p>
+                <h2 data-i18n="title">3D Mechanical Design for Food Service Robot.</h2>
+                <p data-i18n="desc1">มินิโปรเจกต์การออกแบบโครงสร้างทางกล (Mechanical Design) สำหรับหุ่นยนต์บริการและเสิร์ฟอาหาร (Food Service Robot) เน้นการประยุกต์ใช้งานจริงในร้านอาหาร</p>
+                <p data-i18n="desc2">ตัวหุ่นยนต์ถูกออกแบบและจำลองภาพ 3 มิติ โดยคำนึงถึงความแข็งแรงของโครงสร้าง (Frame structural design) การรับน้ำหนักของถาดวางอาหาร และการจัดวางศูนย์ถ่วงให้เหมาะสมกับการเคลื่อนที่แบบอัตโนมัติ</p>
                 
                 <div class="details-grid">
                     <div class="detail-item">
-                        <h4>Type</h4>
-                        <p>Mini Project</p>
+                        <h4 data-i18n="meta-type">Type</h4>
+                        <p data-i18n="meta-type-val">Mini Project</p>
                     </div>
                     <div class="detail-item">
-                        <h4>Software</h4>
+                        <h4 data-i18n="meta-software">Software</h4>
                         <p>3D CAD / SolidWorks</p>
                     </div>
                     <div class="detail-item">
-                        <h4>Focus</h4>
-                        <p>Mechanical Design</p>
+                        <h4 data-i18n="meta-focus">Focus</h4>
+                        <p data-i18n="meta-focus-val">Mechanical Design</p>
                     </div>
                     <div class="detail-item">
-                        <h4>Status</h4>
-                        <p>Design Phase</p>
+                        <h4 data-i18n="meta-status">Status</h4>
+                        <p data-i18n="meta-status-val">Design Phase</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <script>
+        const translations = {
+            th: {
+                "nav-back": "← Back to Portfolio",
+                "win-title": "ROBO_S - FOOD SERVICE ROBOT",
+                "title": "3D Mechanical Design for Food Service Robot.",
+                "desc1": "มินิโปรเจกต์การออกแบบโครงสร้างทางกล (Mechanical Design) สำหรับหุ่นยนต์บริการและเสิร์ฟอาหาร (Food Service Robot) เน้นการประยุกต์ใช้งานจริงในร้านอาหาร",
+                "desc2": "ตัวหุ่นยนต์ถูกออกแบบและจำลองภาพ 3 มิติ โดยคำนึงถึงความแข็งแรงของโครงสร้าง (Frame structural design) การรับน้ำหนักของถาดวางอาหาร และการจัดวางศูนย์ถ่วงให้เหมาะสมกับการเคลื่อนที่แบบอัตโนมัติ",
+                "meta-type": "ประเภท",
+                "meta-type-val": "มินิโปรเจกต์",
+                "meta-software": "ซอฟต์แวร์",
+                "meta-focus": "จุดเน้น",
+                "meta-focus-val": "การออกแบบทางกล",
+                "meta-status": "สถานะ",
+                "meta-status-val": "ขั้นตอนการออกแบบ"
+            },
+            en: {
+                "nav-back": "← Back to Portfolio",
+                "win-title": "ROBO_S - FOOD SERVICE ROBOT",
+                "title": "3D Mechanical Design for Food Service Robot.",
+                "desc1": "Mechanical design mini project for an autonomous food service robot tailored for hospitality and dining environments.",
+                "desc2": "Designed and rendered in 3D CAD with an engineering focus on frame rigidity, tray payload distribution, and center-of-gravity balance for stable mobile base navigation.",
+                "meta-type": "Type",
+                "meta-type-val": "Mini Project",
+                "meta-software": "Software",
+                "meta-focus": "Focus",
+                "meta-focus-val": "Mechanical Design",
+                "meta-status": "Status",
+                "meta-status-val": "Design Phase"
+            }
+        };
+
+        let currentLang = localStorage.getItem('portfolio_lang') || 'th';
+
+        function updateContent() {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[currentLang] && translations[currentLang][key]) {
+                    el.textContent = translations[currentLang][key];
+                }
+            });
+
+            const indicator = document.getElementById('lang-indicator');
+            if (currentLang === 'th') {
+                indicator.innerHTML = '<span class="active">TH</span> | EN';
+                document.documentElement.lang = "th";
+            } else {
+                indicator.innerHTML = 'TH | <span class="active">EN</span>';
+                document.documentElement.lang = "en";
+            }
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'th' ? 'en' : 'th';
+            localStorage.setItem('portfolio_lang', currentLang);
+            updateContent();
+        }
+
+        document.addEventListener('DOMContentLoaded', updateContent);
+    </script>
 </body>
 </html>

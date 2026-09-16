@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PLC & Ladder Logic - Chotiphat</title>
     <style>
+        * { box-sizing: border-box; }
         body {
             background-color: #050505;
             color: #ededed;
@@ -19,6 +20,9 @@
             width: 100%;
             max-width: 1100px;
             margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         .nav a {
             color: #888;
@@ -27,6 +31,22 @@
             transition: 0.3s;
         }
         .nav a:hover { color: #fff; }
+
+        .lang-switch-btn {
+            background: #141414;
+            border: 1px solid #2a2a2a;
+            color: #888;
+            padding: 6px 14px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 0.85em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+        }
+        .lang-switch-btn:hover { border-color: #444; color: #fff; }
+        .lang-switch-btn span.active { color: #4CAF50; font-weight: 600; }
         
         .window-card {
             background: #111;
@@ -65,7 +85,6 @@
             gap: 40px;
         }
 
-        /* --- กล่อง Carousel วิดีโอแนวตั้ง (สัดส่วน 9:16 พอดีเป๊ะ) --- */
         .carousel-wrapper {
             flex: 1;
             min-width: 315px;
@@ -101,11 +120,10 @@
             width: 100%;
             height: 100%;
             border: none;
-            pointer-events: none; /* ล็อคไม่ให้กดเปิดเสียง */
+            pointer-events: none;
             display: block;
         }
         
-        /* ปุ่มเลื่อนซ้าย-ขวา */
         .carousel-btn {
             position: absolute;
             top: 50%;
@@ -128,7 +146,6 @@
         .btn-prev { left: 10px; }
         .btn-next { right: 10px; }
 
-        /* จุดบอกสถานะสไลด์ */
         .carousel-indicators {
             display: flex;
             gap: 8px;
@@ -148,7 +165,6 @@
             border-radius: 10px;
         }
 
-        /* --- ฝั่งคำอธิบาย (ฝั่งขวา) --- */
         .info-section {
             flex: 1.5;
             min-width: 300px;
@@ -178,7 +194,11 @@
 <body>
 
     <div class="nav">
-        <a href="index.html">← Back to Portfolio</a>
+        <a href="index.html" data-i18n="nav-back">← Back to Portfolio</a>
+        <button class="lang-switch-btn" onclick="toggleLanguage()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            <span id="lang-indicator"><span class="active">TH</span> | EN</span>
+        </button>
     </div>
 
     <div class="window-card">
@@ -188,35 +208,29 @@
                 <div class="dot yellow"></div>
                 <div class="dot green"></div>
             </div>
-            <div class="header-title">PLC & AUTOMATION CONTROL</div>
+            <div class="header-title" data-i18n="win-title">PLC & AUTOMATION CONTROL</div>
             <div style="width: 44px;"></div>
         </div>
 
         <div class="content-layout">
-            
-            <!-- ฝั่งซ้าย: Carousel วิดีโอ Shorts (แสดงโปรไฟล์ + ชื่อคลิป + เต็มขอบพอดีเป๊ะ) -->
             <div class="carousel-wrapper">
                 <div class="carousel-container">
                     <button class="carousel-btn btn-prev" onclick="moveSlide(-1)">❮</button>
                     <button class="carousel-btn btn-next" onclick="moveSlide(1)">❯</button>
                     
                     <div class="carousel-track" id="track">
-                        <!-- คลิปที่ 1 -->
                         <div class="carousel-slide">
                             <iframe src="https://www.youtube.com/embed/ri_iEjsfovQ?autoplay=1&mute=1&controls=0&loop=1&playlist=ri_iEjsfovQ&playsinline=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
                         </div>
-                        <!-- คลิปที่ 2 -->
                         <div class="carousel-slide">
                             <iframe src="https://www.youtube.com/embed/SsAy_VXCpWM?autoplay=1&mute=1&controls=0&loop=1&playlist=SsAy_VXCpWM&playsinline=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
                         </div>
-                        <!-- คลิปที่ 3 -->
                         <div class="carousel-slide">
                             <iframe src="https://www.youtube.com/embed/nIJ04wtdYKE?autoplay=1&mute=1&controls=0&loop=1&playlist=nIJ04wtdYKE&playsinline=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
                         </div>
                     </div>
                 </div>
 
-                <!-- จุดบอกตำแหน่งสไลด์ -->
                 <div class="carousel-indicators">
                     <div class="indicator active" onclick="goToSlide(0)"></div>
                     <div class="indicator" onclick="goToSlide(1)"></div>
@@ -224,36 +238,33 @@
                 </div>
             </div>
 
-            <!-- ฝั่งขวา: คำอธิบายโปรเจกต์ -->
             <div class="info-section">
-                <h2>Industrial PLC & Machine Control.</h2>
-                <p>รวมผลงานการทดลองและปฏิบัติการควบคุมเครื่องจักรกลอัตโนมัติในห้องปฏิบัติการ (Automation & Mechatronics Lab)</p>
-                <p>มุ่งเน้นการเขียนโปรแกรมควบคุมลำดับการทำงาน (Sequence Control) ด้วย <strong>Ladder Diagram</strong> และ <strong>SFC</strong> สั่งการควบคุมระบบนิวเมติกส์ (Pneumatics), กระบอกสูบ, มอเตอร์สายพานลำเลียง และการเชื่อมต่อรับสัญญาณจากเซนเซอร์ตรวจจับชนิดต่างๆ</p>
+                <h2 data-i18n="title">Industrial PLC & Machine Control.</h2>
+                <p data-i18n="desc1">รวมผลงานการทดลองและปฏิบัติการควบคุมเครื่องจักรกลอัตโนมัติในห้องปฏิบัติการ (Automation & Mechatronics Lab)</p>
+                <p data-i18n="desc2">มุ่งเน้นการเขียนโปรแกรมควบคุมลำดับการทำงาน (Sequence Control) ด้วย <strong>Ladder Diagram</strong> และ <strong>SFC</strong> สั่งการควบคุมระบบนิวเมติกส์ (Pneumatics), กระบอกสูบ, มอเตอร์สายพานลำเลียง และการเชื่อมต่อรับสัญญาณจากเซนเซอร์ตรวจจับชนิดต่างๆ</p>
                 
                 <div class="details-grid">
                     <div class="detail-item">
-                        <h4>Programming</h4>
+                        <h4 data-i18n="meta-prog">Programming</h4>
                         <p>Ladder Diagram / SFC</p>
                     </div>
                     <div class="detail-item">
-                        <h4>Hardware</h4>
-                        <p>Industrial PLC & Sensors</p>
+                        <h4 data-i18n="meta-hw">Hardware</h4>
+                        <p data-i18n="meta-hw-val">Industrial PLC & Sensors</p>
                     </div>
                     <div class="detail-item">
-                        <h4>Category</h4>
-                        <p>Automation Lab Project</p>
+                        <h4 data-i18n="meta-cat">Category</h4>
+                        <p data-i18n="meta-cat-val">Automation Lab Project</p>
                     </div>
                     <div class="detail-item">
-                        <h4>Focus</h4>
-                        <p>Sequence & Logic Control</p>
+                        <h4 data-i18n="meta-focus">Focus</h4>
+                        <p data-i18n="meta-focus-val">Sequence & Logic Control</p>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 
-    <!-- Javascript ควบคุมการเลื่อนสไลด์ -->
     <script>
         const track = document.getElementById('track');
         const indicators = document.querySelectorAll('.indicator');
@@ -278,7 +289,65 @@
             currentIndex = index;
             updateCarousel();
         }
-    </script>
 
+        const translations = {
+            th: {
+                "nav-back": "← Back to Portfolio",
+                "win-title": "PLC & AUTOMATION CONTROL",
+                "title": "Industrial PLC & Machine Control.",
+                "desc1": "รวมผลงานการทดลองและปฏิบัติการควบคุมเครื่องจักรกลอัตโนมัติในห้องปฏิบัติการ (Automation & Mechatronics Lab)",
+                "desc2": "มุ่งเน้นการเขียนโปรแกรมควบคุมลำดับการทำงาน (Sequence Control) ด้วย Ladder Diagram และ SFC สั่งการควบคุมระบบนิวเมติกส์ (Pneumatics), กระบอกสูบ, มอเตอร์สายพานลำเลียง และการเชื่อมต่อรับสัญญาณจากเซนเซอร์ตรวจจับชนิดต่างๆ",
+                "meta-prog": "การเขียนโปรแกรม",
+                "meta-hw": "ฮาร์ดแวร์",
+                "meta-hw-val": "PLC อุตสาหกรรม และเซนเซอร์",
+                "meta-cat": "หมวดหมู่",
+                "meta-cat-val": "การทดลองในห้องปฏิบัติการ",
+                "meta-focus": "จุดเน้น",
+                "meta-focus-val": "การควบคุมลำดับและตรรกะ"
+            },
+            en: {
+                "nav-back": "← Back to Portfolio",
+                "win-title": "PLC & AUTOMATION CONTROL",
+                "title": "Industrial PLC & Machine Control.",
+                "desc1": "A collection of automated industrial machine control practical lab experiments (Automation & Mechatronics Lab).",
+                "desc2": "Focused on sequence control programming via Ladder Diagram and SFC to actuate pneumatic cylinders, conveyor motors, and interface with various industrial sensors.",
+                "meta-prog": "Programming",
+                "meta-hw": "Hardware",
+                "meta-hw-val": "Industrial PLC & Sensors",
+                "meta-cat": "Category",
+                "meta-cat-val": "Automation Lab Project",
+                "meta-focus": "Focus",
+                "meta-focus-val": "Sequence & Logic Control"
+            }
+        };
+
+        let currentLang = localStorage.getItem('portfolio_lang') || 'th';
+
+        function updateContent() {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[currentLang] && translations[currentLang][key]) {
+                    el.textContent = translations[currentLang][key];
+                }
+            });
+
+            const indicator = document.getElementById('lang-indicator');
+            if (currentLang === 'th') {
+                indicator.innerHTML = '<span class="active">TH</span> | EN';
+                document.documentElement.lang = "th";
+            } else {
+                indicator.innerHTML = 'TH | <span class="active">EN</span>';
+                document.documentElement.lang = "en";
+            }
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'th' ? 'en' : 'th';
+            localStorage.setItem('portfolio_lang', currentLang);
+            updateContent();
+        }
+
+        document.addEventListener('DOMContentLoaded', updateContent);
+    </script>
 </body>
 </html>
