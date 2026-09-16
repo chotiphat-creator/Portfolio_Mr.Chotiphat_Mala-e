@@ -6,6 +6,10 @@
     <title>Awards & Achievements - Chotiphat</title>
     <style>
         * { box-sizing: border-box; }
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+        }
         body {
             background-color: #050505;
             color: #ededed;
@@ -64,22 +68,30 @@
             display: flex;
             align-items: center;
             border-bottom: 1px solid #222;
+            position: relative;
+            justify-content: space-between;
         }
-        .dots { display: flex; gap: 8px; }
+        .dots { display: flex; gap: 8px; flex-shrink: 0; }
         .dot { width: 12px; height: 12px; border-radius: 50%; }
         .dot.red { background: #ff5f56; }
         .dot.yellow { background: #ffbd2e; }
         .dot.green { background: #27c93f; }
         .header-title {
-            margin: 0 auto;
             color: #888;
             font-size: 0.85em;
             letter-spacing: 1px;
             text-transform: uppercase;
+            text-align: center;
+            flex-grow: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            padding: 0 10px;
         }
 
         .content-layout {
             padding: 40px;
+            width: 100%;
         }
         
         .award-card {
@@ -93,6 +105,7 @@
             text-decoration: none;
             color: inherit;
             transition: 0.3s;
+            width: 100%;
         }
         .award-card:hover {
             border-color: #4CAF50;
@@ -112,7 +125,7 @@
         }
         .award-info {
             flex: 2;
-            min-width: 300px;
+            min-width: 280px;
             padding: 28px;
             display: flex;
             flex-direction: column;
@@ -147,70 +160,10 @@
             margin-top: 4px;
         }
 
-        .feature-section {
-            background: linear-gradient(145deg, #161616, #121814);
-            border: 1px solid #2e3d32;
-            border-radius: 14px;
-            padding: 30px;
-            margin: 40px 0;
-        }
-        .feature-badge {
-            color: #4CAF50;
-            font-size: 0.8em;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            display: block;
-        }
-        .feature-section h3 {
-            font-size: 1.4em;
-            margin: 0 0 14px 0;
-            color: #fff;
-        }
-        .feature-section p {
-            color: #aaa;
-            font-size: 0.95em;
-            line-height: 1.7;
-            margin: 0 0 20px 0;
-        }
-        .sdg-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 22px;
-        }
-        .sdg-tag {
-            background: #1e1e1e;
-            color: #ddd;
-            border: 1px solid #333;
-            padding: 4px 10px;
-            border-radius: 6px;
-            font-size: 0.78em;
-            font-weight: 500;
-        }
-        .article-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: #4CAF50;
-            color: #050505;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.88em;
-            padding: 10px 20px;
-            border-radius: 50px;
-            transition: 0.25s;
-        }
-        .article-btn:hover {
-            background: #5cdb61;
-            transform: translateY(-2px);
-        }
-
         .section-header {
-            margin: 40px 0 20px 0;
+            margin: 30px 0 20px 0;
             border-top: 1px solid #222;
-            padding-top: 30px;
+            padding-top: 25px;
         }
         .section-header h3 {
             font-size: 1.3em;
@@ -295,9 +248,15 @@
             border-radius: 10px;
         }
 
+        /* --- ป้องกันการตกขอบขวาบนมือถือ --- */
         @media (max-width: 768px) {
+            body { padding: 20px 12px; }
+            .content-layout { padding: 20px 14px; }
             .award-card { flex-direction: column; }
-            .carousel-container { height: 380px; }
+            .award-img, .award-info { min-width: 0; width: 100%; }
+            .award-info { padding: 20px 16px; }
+            .carousel-container { height: 350px; }
+            .header-title { font-size: 0.72em; }
         }
     </style>
 </head>
@@ -319,7 +278,7 @@
                 <div class="dot green"></div>
             </div>
             <div class="header-title" data-i18n="win-title">AWARDS & ACHIEVEMENTS</div>
-            <div style="width: 44px;"></div>
+            <div style="width: 36px;"></div>
         </div>
 
         <div class="content-layout">
@@ -359,24 +318,6 @@
                     <span class="external-hint" data-i18n="a3-hint">คลิกเพื่อดูประกาศผลทางการจากเพจ Thailand Innovation Awards</span>
                 </div>
             </a>
-
-            <section class="feature-section">
-                <span class="feature-badge" data-i18n="feat-badge">University Highlight & Sustainable Development Goals</span>
-                <h3 data-i18n="feat-title">บทสัมภาษณ์สารคดีสื่อสร้างสรรค์ & นวัตกรรมเพื่อความยั่งยืน (SDGs)</h3>
-                <p data-i18n="feat-desc">
-                    ทีมนักศึกษาสาขาวิชาเทคโนโลยีวิศวกรรมแมคคาทรอนิกส์ วทอ. และศูนย์วิจัยพลังงานยั่งยืนและวัสดุวิศวกรรม (SEEM Research Center) มจพ. ได้รับการสัมภาษณ์สารคดีของกองทุนพัฒนาสื่อปลอดภัยและสร้างสรรค์ ในโครงการ "ล้ำ Storytelling คนมหัศจรรย์" จากการสร้างสรรค์นวัตกรรมระบบบำบัดน้ำเสีย ST-500 ที่ผสานปัญญาประดิษฐ์และวิศวกรรมเพื่อสิ่งแวดล้อม
-                </p>
-                <div class="sdg-group">
-                    <span class="sdg-tag">#SDG4 Quality Education</span>
-                    <span class="sdg-tag">#SDG7 Clean Energy</span>
-                    <span class="sdg-tag">#SDG9 Industry & Innovation</span>
-                    <span class="sdg-tag">#SDG13 Climate Action</span>
-                    <span class="sdg-tag">#SDG17 Partnerships</span>
-                </div>
-                <a href="https://kmutnb.ac.th/news/university-news/นักศึกษา-มจพ-โพสต์ภาพบทสัมภาษณ์สารคดีของกองทุนพัฒนาสื่อปลอดภัยและสร้างสรรค์.aspx" target="_blank" class="article-btn" data-i18n="feat-btn">
-                    อ่านบทสัมภาษณ์ข่าว มจพ. ฉบับเต็ม ↗
-                </a>
-            </section>
 
             <div class="section-header">
                 <h3 data-i18n="cert-title">Official Certificates</h3>
@@ -447,10 +388,6 @@
                 "a3-badge": "2nd Runner-up",
                 "a3-desc": "รางวัลรองชนะเลิศอันดับ 2 ระดับปริญญาตรี - ปวส. จากผลงาน 'ระบบบำบัดน้ำอัจฉริยะและยั่งยืน: ST-500 ขับเคลื่อนด้วย AI เพื่ออนาคตที่เป็นมิตรต่อสิ่งแวดล้อม' (TIA ครั้งที่ 25)",
                 "a3-hint": "คลิกเพื่อดูประกาศผลทางการจากเพจ Thailand Innovation Awards",
-                "feat-badge": "University Highlight & Sustainable Development Goals",
-                "feat-title": "บทสัมภาษณ์สารคดีสื่อสร้างสรรค์ & นวัตกรรมเพื่อความยั่งยืน (SDGs)",
-                "feat-desc": "ทีมนักศึกษาสาขาวิชาเทคโนโลยีวิศวกรรมแมคคาทรอนิกส์ วทอ. และศูนย์วิจัยพลังงานยั่งยืนและวัสดุวิศวกรรม (SEEM Research Center) มจพ. ได้รับการสัมภาษณ์สารคดีของกองทุนพัฒนาสื่อปลอดภัยและสร้างสรรค์ ในโครงการ 'ล้ำ Storytelling คนมหัศจรรย์' จากการสร้างสรรค์นวัตกรรมระบบบำบัดน้ำเสีย ST-500 ที่ผสานปัญญาประดิษฐ์และวิศวกรรมเพื่อสิ่งแวดล้อม",
-                "feat-btn": "อ่านบทสัมภาษณ์ข่าว มจพ. ฉบับเต็ม ↗",
                 "cert-title": "Official Certificates",
                 "cert-desc": "หลักฐานประกาศนียบัตรและเหรียญรางวัลรับรองผลงานอย่างเป็นทางการ"
             },
@@ -466,10 +403,6 @@
                 "a3-badge": "2nd Runner-up",
                 "a3-desc": "2nd Runner-up (Undergraduate Level) for 'Smart & Sustainable Wastewater Treatment System: ST-500 Powered by AI for an Eco-Friendly Future' (25th TIA).",
                 "a3-hint": "Click to view official announcement on Thailand Innovation Awards page",
-                "feat-badge": "University Highlight & Sustainable Development Goals",
-                "feat-title": "Creative Media Documentary Interview & Sustainable Innovation (SDGs)",
-                "feat-desc": "Mechatronics Engineering students from CIT-KMUTNB and SEEM Research Center were featured in a documentary produced by the Thai Media Fund under the 'Lum Storytelling' project, highlighting the ST-500 AI-powered sustainable wastewater system.",
-                "feat-btn": "Read Full KMUTNB Interview Article ↗",
                 "cert-title": "Official Certificates",
                 "cert-desc": "Official certificates of recognition and gold medal verification."
             }

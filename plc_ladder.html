@@ -6,6 +6,10 @@
     <title>PLC & Ladder Logic - Chotiphat</title>
     <style>
         * { box-sizing: border-box; }
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+        }
         body {
             background-color: #050505;
             color: #ededed;
@@ -64,18 +68,24 @@
             display: flex;
             align-items: center;
             border-bottom: 1px solid #222;
+            justify-content: space-between;
         }
-        .dots { display: flex; gap: 8px; }
+        .dots { display: flex; gap: 8px; flex-shrink: 0; }
         .dot { width: 12px; height: 12px; border-radius: 50%; }
         .dot.red { background: #ff5f56; }
         .dot.yellow { background: #ffbd2e; }
         .dot.green { background: #27c93f; }
         .header-title {
-            margin: 0 auto;
             color: #888;
             font-size: 0.85em;
             letter-spacing: 1px;
             text-transform: uppercase;
+            text-align: center;
+            flex-grow: 1;
+            padding: 0 10px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .content-layout {
@@ -83,6 +93,7 @@
             flex-wrap: wrap;
             padding: 40px;
             gap: 40px;
+            width: 100%;
         }
 
         .carousel-wrapper {
@@ -187,7 +198,12 @@
         .detail-item p { margin: 5px 0 0 0; color: #ddd; font-weight: 500; font-size: 0.95em; }
 
         @media (max-width: 768px) {
-            .content-layout { flex-direction: column; align-items: center; }
+            body { padding: 20px 12px; }
+            .content-layout { padding: 20px 14px; gap: 24px; flex-direction: column; align-items: center; }
+            .carousel-wrapper, .info-section { min-width: 0; width: 100%; }
+            .carousel-container { width: 100%; max-width: 315px; height: 500px; }
+            .header-title { font-size: 0.72em; }
+            .info-section h2 { font-size: 1.8em; }
         }
     </style>
 </head>
@@ -209,7 +225,7 @@
                 <div class="dot green"></div>
             </div>
             <div class="header-title" data-i18n="win-title">PLC & AUTOMATION CONTROL</div>
-            <div style="width: 44px;"></div>
+            <div style="width: 36px;"></div>
         </div>
 
         <div class="content-layout">
